@@ -1,0 +1,23 @@
+
+<ion-view view-title="Who should pay next">
+  <ion-content class="padding text-center">
+
+    <h5>Who should pay next?</h5>
+
+    <div class="next-payer-container">
+
+        <h2>{{friends[friends.length-1].name}} {{friends[friends.length-1].surname}}</h2>
+
+    </div>
+
+      <div class="list">
+
+          <a class="item" href="#" ng-repeat="friend in friends | orderBy:'balance'">
+              <h2>{{friend.name}} {{friend.surname}}</h2>
+              <p>{{friend.balance}} €</p>
+          </a>
+
+      </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,49 @@
+
+<ion-view view-title="Add a new payment">
+  <ion-content class="padding">
+
+    <h2>Add a new payment</h2>
+
+      <div class="list">
+
+          <label class="item item-input item-select">
+              <div class="input-label">
+                  Who pays?
+              </div>
+
+              <select ng-model="friendModel.selectedFriend" ng-change="onPayerSelect()">
+                  <option value="{{contact.id}}" ng-repeat="contact in contacts">{{contact.displayName}}</option>
+              </select>
+
+          </label>
+          <hr/>
+
+          <label class="item item-input item-select">
+              <div class="input-label">
+                  Who are you paying for?
+              </div>
+
+              <select ng-model="friendModel.payingFor" ng-change="onFriendSelect()">
+                  <option value="{{contact.id}}" ng-repeat="contact in contacts">{{contact.displayName}}</option>
+              </select>
+
+          </label>
+
+          <br/>
+
+          <div class="friend-amount-container" ng-if="friendModel.selectedFriend != friend.id" ng-repeat="friend in activeFriends">
+              <label>{{friend.displayName}}</label>
+              <label class="item item-input item-floating-label">
+                  <span class="input-label">Amount</span>
+                  <input type="number" ng-model="friend.currentAmount" placeholder="Amount">
+              </label>
+              <br/>
+          </div>
+
+      </div>
+      <div ng-click="addPayment()" class="button button-block button-balanced">Add payment</div>
+
+
+
+  </ion-content>
+</ion-view>
